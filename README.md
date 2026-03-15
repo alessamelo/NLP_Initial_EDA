@@ -1,46 +1,76 @@
-# **Disaster Tweets — Exploratory Data Analysis (EDA)**
+# Project Structure
 
-This notebook performs an exploratory data analysis (EDA) of the **Disaster Tweets** dataset. The objective is to understand the structural, lexical, and stylistic characteristics of tweets labeled as disaster-related or non-disaster-related.
+This project is organized into several notebooks, each responsible for a specific stage of the machine learning pipeline. The workflow follows a typical natural language processing process: **exploration → preprocessing → training → evaluation**.
 
-The analysis focuses on:
+## 1. EDA Notebook (`EDA.ipynb`)
 
-* Dataset structure and missing values
-* Text length statistics
-* Metadata feature exploration
-* Duplicate detection
-* URL and emoji presence
-* Preliminary linguistic signals
+The **EDA (Exploratory Data Analysis)** notebook contains the initial exploration of the dataset.  
+In this stage, the structure and characteristics of the tweets are analyzed to better understand the data.
 
-This EDA serves as the foundation for downstream NLP modeling.
+The analysis includes:
 
----
+- Distribution of tweet lengths
+- Token length distribution
+- Hashtag, mention, and URL analysis
+- Stopword and content-word comparison
+- Punctuation and capitalization patterns
+- Language detection
+- Non-ASCII character inspection
+- Geographic information analysis
+- Class distribution and imbalance inspection
 
-##  Dataset Description
-
-The dataset contains **7,613 tweets** with the following columns:
-
-| Column     | Description                                   |
-| ---------- | --------------------------------------------- |
-| `id`       | Unique identifier                             |
-| `keyword`  | Disaster-related keyword (optional)           |
-| `location` | User-provided location (free text)            |
-| `text`     | Tweet content                                 |
-| `target`   | Binary label (1 = disaster, 0 = non-disaster) |
+These analyses help identify potential issues in the dataset and guide the design of the preprocessing and modeling steps.
 
 ---
 
-##  Technologies Used
+## 2. Cleaning Notebook (`Cleaning.ipynb`)
 
-* Python
-* pandas
-* matplotlib
-* numpy
-* emoji (for emoji detection)
+The **Cleaning notebook** is responsible for preparing the dataset before training the models.
+
+The preprocessing pipeline includes:
+
+- Removing duplicate tweets
+- Removing emojis and non-standard characters
+- Removing URLs, mentions, and special symbols
+- Converting text to lowercase
+- Removing punctuation and unnecessary characters
+- Removing stopwords
+- Performing lemmatization to reduce words to their base form
+
+After the preprocessing steps are applied, a **clean version of the dataset** is generated and saved for use in the training phase.
 
 ---
 
-##  Conclusion
+## 3. Training Notebook (`Training.ipynb`)
 
-This exploratory analysis highlights structural and stylistic differences between disaster and non-disaster tweets. While surface-level features offer limited separation, they provide valuable context for feature engineering and model design in subsequent NLP tasks.
+The **Training notebook** loads the cleaned dataset and trains the machine learning models.
+
+The workflow in this notebook includes:
+
+- Loading the cleaned dataset
+- Splitting the dataset into **training, validation, and testing sets**
+- Tokenizing the text and converting tweets into numerical sequences
+- Applying padding to ensure uniform sequence length
+- Training different model configurations, including neural network architectures
+
+The models are trained using standard optimization techniques and evaluated using classification metrics.
+
+---
+
+## 4. Results Notebook (`Results.ipynb`)
+
+The **Results notebook** compares the performance of the different models trained in the previous stage.
+
+The evaluation includes:
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- AUC (Area Under the Curve)
+
+Additionally, visualizations such as **confusion matrices and metric comparison plots** are generated to analyze the strengths and weaknesses of each configuration.
+
+This notebook provides the final comparison and interpretation of the models’ performance.
 
 
