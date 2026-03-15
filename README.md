@@ -21,7 +21,6 @@ The analysis includes:
 
 These analyses help identify potential issues in the dataset and guide the design of the preprocessing and modeling steps.
 
----
 
 ## 2. Cleaning Notebook (`Cleaning.ipynb`)
 
@@ -39,7 +38,7 @@ The preprocessing pipeline includes:
 
 After the preprocessing steps are applied, a **clean version of the dataset** is generated and saved for use in the training phase.
 
----
+
 
 ## 3. Training Notebook (`Training.ipynb`)
 
@@ -55,7 +54,7 @@ The workflow in this notebook includes:
 
 The models are trained using standard optimization techniques and evaluated using classification metrics.
 
----
+
 
 ## 4. Results Notebook (`Results.ipynb`)
 
